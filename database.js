@@ -45,9 +45,9 @@ export const getUserById = async (id) => {
 }
 
 
-export const getUserByEmail = async (correo) => {
+export const getUserByEmail = async (email) => {
 
-    const [rows] = await pool.query(`SELECT * FROM users WHERE email = ${correo}`);
+    const [rows] = await pool.query(`SELECT * FROM users WHERE email = ${email}`);
     return rows[0]
 }
 
