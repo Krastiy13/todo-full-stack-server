@@ -29,7 +29,9 @@ app.get("/todos/:id", async (req, res) => {
 app.get("/todos/shared_todos/:id", async (req, res) => {
 
     const todoID = await getSharedTodoByID(req.params.id);
-    console.log(todoID, "node node node node node node ")
+
+
+    console.log(todoID, "id de la tarea")
     const author = await getUserById(todoID.user_id);
     const shared_with = await getUserById(todoID.shared_with_id);
     res.status(200).send({ author, shared_with })
@@ -53,7 +55,9 @@ app.delete("/todos/:id", async (req, res) => {
 
 app.post("/todos/shared_todos", async (req, res) => {
     const { todo_id, user_id, email } = req.body
+
     const userToShare = await getUserByEmail(email);
+
     const sharedTodo = await shareTodo(todo_id, user_id, userToShare.id);
     res.status(201).send(sharedTodo);
 })

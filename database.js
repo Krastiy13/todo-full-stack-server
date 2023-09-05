@@ -45,11 +45,13 @@ export const getUserById = async (id) => {
 }
 
 
-export const getUserByEmail = async (email) => {
-    const [rows] = await pool.query(`SELECT * FROM users WHERE email = ?`, [email]);
+export const getUserByEmail = async (correo) => {
 
+    const [rows] = await pool.query(`SELECT * FROM users WHERE email = ${correo}`);
     return rows[0]
 }
+
+
 
 export const createTodo = async (user_id, title) => {
 
@@ -88,6 +90,8 @@ export const toggleCompleted = async (id, value) => {
 }
 
 export const shareTodo = async (todo_id, user_id, shared_with_id) => {
+
+    console.log(shared_with_id)
 
     const results = await pool.query(`
     INSERT INTO shared_todos (todo_id,user_id,shared_with_id)
