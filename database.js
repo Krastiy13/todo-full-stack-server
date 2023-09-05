@@ -39,8 +39,8 @@ export const getSharedTodoByID = async (id) => {
 
     return rows[0]
 }
-export const getUserById = async (id) => {
-    const [rows] = await pool.query(`SELECT * FROM users WHERE id = ?`, [id]);
+export const getUserById = async (iddd) => {
+    const [rows] = await pool.query(`SELECT * FROM users WHERE id = ?`, [iddd]);
     return rows[0]
 }
 
