@@ -53,10 +53,10 @@ export const getUserByEmail = async (email) => {
 
 
 
-export const createTodo = async (user_id, title) => {
+export const createTodo = async (user___id, tiiiiitle) => {
 
     const [result] = await pool.query(`INSERT INTO todos (user_id,title)
-    VALUES (?,?)`, [user_id, title]
+    VALUES (?,?)`, [user___id, tiiiiitle]
     );
     const todoID = result.insertId;
     return getTodo(todoID)
